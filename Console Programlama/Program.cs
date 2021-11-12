@@ -6,7 +6,13 @@ namespace Console_Programlama
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("İsminiz:");
+            string name = Console.ReadLine();
+            Console.WriteLine("Soyadınız:");
+            string surname = Console.ReadLine();
+
+            Console.WriteLine("Merhaba "+name+" "+surname);
+
         }
     }
 }
