@@ -1,12 +1,14 @@
 ﻿using System;
+using System.Collections;
 
-namespace ArrayList
+namespace ArrayList1
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            ArrayList list = new ArrayList();
+            
         }
     }
 }
