@@ -19,5 +19,9 @@ namespace Inheritance
         {
             System.Console.WriteLine("Butun canlilar bosaltim yapar");
         }
+        public virtual void UyaranlaraTepki()
+        {
+            System.Console.WriteLine("Canlilar uyaranlara tepki verir");
+        }
     }
 }
