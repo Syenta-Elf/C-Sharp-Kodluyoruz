@@ -8,6 +8,9 @@ namespace toDoList
     public class Board
     {
         private Card card;
+        public Lines toDo = new ToDo();
+        public Lines progress = new Progress();
+        public Lines done = new Done();
 
         public Card Card { get => card; set => card = value; }
 
@@ -36,6 +39,13 @@ namespace toDoList
                 p.Size = ((Sizes)size).ToString();
                 p.PersonID = i;
                 idList.Add(i);
+                int randomLine = rnd.Next(0,3);
+                if(randomLine==0)
+                toDo.getCard(p);
+                else if(randomLine==1)
+                progress.getCard(p);
+                else
+                done.getCard(p);
             }
 
         }
@@ -55,6 +65,26 @@ namespace toDoList
         System.Console.Write("Id:");
         createC.PersonID=isIdExist(Convert.ToInt16(Console.ReadLine().ToString()));
         
+        System.Console.WriteLine("*****************************");
+        System.Console.WriteLine("Kartı nereye ekleyeceksiniz ?");
+        System.Console.WriteLine("[1]ToDo [2]Progress [3]Done");
+        System.Console.Write("Seçiminiz:");
+        switch(Convert.ToInt16(Console.ReadLine()))
+         {
+             case 1:
+             toDo.getCard(createC);
+             break;
+
+             case 2:
+             progress.getCard(createC);
+             break;
+
+             case 3:
+             done.getCard(createC);
+             break;
+         }
+
+
         this.card = createC;  
      }    
 
@@ -72,6 +102,16 @@ namespace toDoList
 
         return id;
         
+     }
+
+     public void listCards()
+     {
+         System.Console.WriteLine("-------------ToDo Lines-------------");
+         toDo.listCard();
+         System.Console.WriteLine("-------------Progress Lines-------------");
+         progress.listCard();
+         System.Console.WriteLine("-------------Done Lines-------------");
+         done.listCard();
      }
     }
 }
