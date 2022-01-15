@@ -7,36 +7,48 @@ namespace toDoList
         static Board board = new Board();
         static void Main(string[] args)
         {
-            while (menu())
-            {
-                
-            }
+
+            menu();
+
         }
 
-        static public bool menu()
+        static void menu()
         {
-            System.Console.WriteLine("Hoşgeldiniz bir işlem seçiniz!");
-                System.Console.WriteLine("[1] Board'u listele");
-                System.Console.WriteLine("[2] Board'a kart ekle");
-                System.Console.WriteLine("[3] Board'dan kart sil");
-                System.Console.WriteLine("[4] Kart taşımak");
-                int select = Convert.ToInt32(Console.ReadLine());
-                System.Console.WriteLine("\n\n");
-                switch (select)
+            while (true)
+            {
+                System.Console.WriteLine("Lütfen yapmak istediğiniz işlemi seçiniz :) ");
+                System.Console.WriteLine("*******************************************");
+                System.Console.WriteLine("[1] Board Listelemek");
+                System.Console.WriteLine("[2] Board'a Kart Eklemek");
+                System.Console.WriteLine("[3] Board'dan Kart Silmek");
+                System.Console.WriteLine("[4] Kart Taşımak");
+                System.Console.WriteLine("[5] Çıkış");
+
+                System.Console.WriteLine("Seçiminiz:");
+
+                switch (Convert.ToInt16(Console.ReadLine().ToString()))
                 {
                     case 1:
-                    board.showLines();
-                    System.Console.WriteLine("\n\n");
-                    return true;
-                    
+                        board.listCards();
+                        break;
                     case 2:
-                    board.createCard();
-                    return true;
-                    
+                        board.createCard();
+                        break;
+                    case 3:
+                        board.removeCard();
+                        break;
+                    case 4:
+                        board.changeLine();
+                        break;
+                    case 5:
+                        return;
                     default:
-                    return false;
-                    
-                }  
+                        System.Console.WriteLine("Geçersiz işlem");
+                        break;
+                }
+
+
+            }
         }
     }
 }
